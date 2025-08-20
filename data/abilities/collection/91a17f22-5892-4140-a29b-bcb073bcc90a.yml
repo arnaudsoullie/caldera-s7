@@ -1,0 +1,53 @@
+- tactic: collection
+  technique_name: Point & Tag Identification
+  technique_id: T0861
+  name: Snap7 Read area
+  description: 'Snap7 Plugin
+
+
+    Monitor Snap7 other area, can be repeated multiple times and spaced in time between
+    each request. This is a generic read area, not only DB.'
+  executors:
+  - name: sh
+    platform: linux
+    command: './snap7_cli -a #{snap7.ip} -p #{snap7.port} --area #{snap7.area} --db_number #{snap7.db_number}
+      read #{snap7.read.start} #{snap7.read.end} --count #{snap7.read.count} --wait 2>&1
+      #{snap7.read.wait}'
+    code: null
+    language: null
+    build_target: null
+    payloads:
+    - snap7_cli
+    uploads: []
+    timeout: 60
+    parsers: []
+    cleanup: []
+    variations: []
+    additional_info: {}
+  - name: psh
+    platform: windows
+    command: './snap7_cli.exe -a #{snap7.ip} -p #{snap7.port} --area #{snap7.area} --db_number #{snap7.db_number}
+      read #{snap7.read.start} #{snap7.read.end} --count #{snap7.read.count} --wait
+      #{snap7.read.wait}'
+    code: null
+    language: null
+    build_target: null
+    payloads:
+    - snap7_cli.exe
+    uploads: []
+    timeout: 60
+    parsers: []
+    cleanup: []
+    variations: []
+    additional_info: {}
+  requirements: []
+  privilege: ''
+  repeatable: false
+  buckets:
+  - collection
+  additional_info: {}
+  access: {}
+  singleton: false
+  plugin: snap7
+  delete_payload: false
+  id: 91a17f22-5892-4140-a29b-bcb073bcc90a

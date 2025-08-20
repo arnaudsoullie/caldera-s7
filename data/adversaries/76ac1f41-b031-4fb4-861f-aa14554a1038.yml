@@ -1,0 +1,7 @@
+name: Test
+description: Test
+atomic_ordering:
+- 42107c70-a5e2-4648-bdfd-6e3867dd218d
+- 7461d782-8132-4365-ab58-c490608d29f3
+adversary_id: 76ac1f41-b031-4fb4-861f-aa14554a1038
+objective: 495a9828-cab1-44dd-a0ca-66e58177d8cc

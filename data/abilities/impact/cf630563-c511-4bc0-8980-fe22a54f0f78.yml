@@ -1,0 +1,51 @@
+- tactic: impact
+  technique_name: Manipulation of Control
+  technique_id: T0831
+  name: Snap7 Write DB
+  description: 'Snap7 Plugin
+    Writes specific values to database registers over specified ranges. Reapeatble multiple
+    times with '
+  executors:
+  - name: sh
+    platform: linux
+    command: './snap7_cli -a #{snap7.ip} -p #{snap7.port} --db_number #{snap7.db_number}
+      write #{snap7.write.start} #{snap7.write.data} --wait #{snap7.write.wait} 2>&1'
+    code: null
+    code: null
+    language: null
+    build_target: null
+    payloads:
+    - snap7_cli
+    uploads: []
+    timeout: 60
+    parsers: []
+    cleanup: []
+    variations: []
+    additional_info: {}
+  - name: psh
+    platform: windows
+    command: './snap7_cli.exe -a #{snap7.ip} -p #{snap7.port} --db_number #{snap7.db_number}
+      write #{snap7.write.start} #{snap7.write.data} --wait #{snap7.write.wait}'
+    code: null
+    code: null
+    language: null
+    build_target: null
+    payloads:
+    - snap7_cli
+    uploads: []
+    timeout: 60
+    parsers: []
+    cleanup: []
+    variations: []
+    additional_info: {}
+  requirements: []
+  privilege: ''
+  repeatable: false
+  buckets:
+  - impact
+  additional_info: {}
+  access: {}
+  singleton: false
+  plugin: snap7
+  delete_payload: false
+  id: cf630563-c511-4bc0-8980-fe22a54f0f78

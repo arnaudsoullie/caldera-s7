@@ -1,0 +1,51 @@
+- tactic: impact
+  technique_name: Manipulation of Control
+  technique_id: T0831
+  name: Snap7 Fuzz DB
+  description: 'Snap7 Plugin
+
+
+    Writes random values to database registers over specified ranges. Reapeatble multiple
+    times with '
+  executors:
+  - name: sh
+    platform: linux
+    command: './snap7_cli -a #{snap7.ip} -p #{snap7.port} --db_number #{snap7.db_number}
+      fuzz #{snap7.fuzz.start} #{snap7.fuzz.end} #{snap7.fuzz.count} --wait #{snap7.fuzz.wait} 2>&1'
+    code: null
+    language: null
+    build_target: null
+    payloads:
+    - snap7_cli
+    uploads: []
+    timeout: 60
+    parsers: []
+    cleanup: []
+    variations: []
+    additional_info: {}
+  - name: psh
+    platform: windows
+    command: './snap7_cli.exe -a #{snap7.ip} -p #{snap7.port} --db_number #{snap7.db_number}
+      fuzz #{snap7.fuzz.start} #{snap7.fuzz.end} #{snap7.fuzz.count} --wait #{snap7.fuzz.wait}'
+    code: null
+    language: null
+    build_target: null
+    payloads:
+    - snap7_cli.exe
+    uploads: []
+    timeout: 60
+    parsers: []
+    cleanup: []
+    variations: []
+    additional_info: {}
+  requirements: []
+  privilege: ''
+  repeatable: false
+  buckets:
+  - impact
+  additional_info: {}
+  access: {}
+  singleton: false
+  plugin: snap7
+  delete_payload: false
+  id: 848e814f-6e82-4ef9-9cd0-36b198f11e00

@@ -1,0 +1,6 @@
+name: Read DB
+description: Snap7 read DB
+atomic_ordering:
+- 42107c70-a5e2-4648-bdfd-6e3867dd218d
+adversary_id: 027d0e3b-0756-4ec5-91c5-8319b0f490b0
+objective: 495a9828-cab1-44dd-a0ca-66e58177d8cc

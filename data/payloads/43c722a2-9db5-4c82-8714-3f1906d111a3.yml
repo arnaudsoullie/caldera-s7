@@ -1,0 +1,9 @@
+id: 43c722a2-9db5-4c82-8714-3f1906d111a3
+name: snap7 Payloads
+standard_payloads:
+  snap7_cli:
+    description: Snap7 Client Program (Linux)
+    id: 5c30873f-3799-460a-99e1-d504b8c774bc
+  snap7_cli.exe:
+    description: Snap7 Client Program (Windows)
+    id: ffb312bf-321e-4f74-8274-451c71f6e9e1

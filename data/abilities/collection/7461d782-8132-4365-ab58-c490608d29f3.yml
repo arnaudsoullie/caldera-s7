@@ -1,0 +1,55 @@
+- tactic: collection
+  technique_name: Detect Operating Mode
+  technique_id: T0868
+  name: Snap7 Gather information
+  description: 'Snap7 Plugin
+
+
+    Gather the followig informations:
+
+    - Order Code
+
+    - Module Name
+
+    - Serial Number
+
+    - Module AS Name
+
+    - Module Copy Right
+
+    - CPU Status
+
+    '
+  executors:
+  - name: sh
+    platform: linux
+    command: './snap7_cli -a #{snap7.ip} -p #{snap7.port} gather_info 2>&1'
+    payloads:
+    - snap7_cli
+    uploads: []
+    timeout: 60
+    parsers:
+    - module: plugins.snap7.app.parsers.basic
+      parserconfigs:
+      - source: test
+        edge: ''
+        target: ''
+        custom_parser_vals: {}
+  - name: psh
+    platform: windows
+    command: './snap7_cli.exe -a #{snap7.ip} -p #{snap7.port} gather_info 2>&1'
+    payloads:
+    - snap7_cli.exe
+    uploads: []
+    timeout: 60
+  requirements: []
+  privilege: ''
+  repeatable: false
+  buckets:
+  - collection
+  additional_info: {}
+  access: {}
+  singleton: false
+  plugin: ''
+  delete_payload: true
+  id: 7461d782-8132-4365-ab58-c490608d29f3

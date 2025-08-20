@@ -1,0 +1,53 @@
+- tactic: impact
+  technique_name: Manipulation of Control
+  technique_id: T0831
+  name: Snap7 Write area
+  description: 'Snap7 Plugin
+  
+
+    Write Snap7 area, can be repeated multiple times and spaced in time between each request.
+    This is a generic write area, not only DB.'
+  executors:
+  - name: sh
+    platform: linux
+    command: './snap7_cli -a #{snap7.ip} -p #{snap7.port} --area #{snap7.area} --db_number #{snap7.db_number}
+      write #{snap7.write.start} #{snap7.write.end} --count #{snap7.write.count} --wait #{snap7.write.wait} 2>&1'
+    code: null
+    code: null
+    language: null
+    build_target: null
+    payloads:
+    - snap7_cli
+    uploads: []
+    timeout: 60
+    parsers: []
+    cleanup: []
+    variations: []
+    additional_info: {}
+  - name: psh
+    platform: windows
+    command: './snap7_cli.exe -a #{snap7.ip} -p #{snap7.port} --area #{snap7.area} --db_number #{snap7.db_number}
+      write #{snap7.read.start} #{snap7.read.end} --count #{snap7.read.count} --wait
+      #{snap7.read.wait}'
+    code: null
+    language: null
+    build_target: null
+    payloads:
+    - snap7_cli.exe
+    uploads: []
+    timeout: 60
+    parsers: []
+    cleanup: []
+    variations: []
+    additional_info: {}
+  requirements: []
+  privilege: ''
+  repeatable: false
+  buckets:
+  - collection
+  additional_info: {}
+  access: {}
+  singleton: false
+  plugin: snap7
+  delete_payload: false
+  id: 1dc98575-ea32-45fa-8afa-c6a3e064bcd2
